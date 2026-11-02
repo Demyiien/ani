@@ -1,0 +1,8 @@
+[
+  {"id":"rainfall","name":"Rainfall","description":"Daily rainfall amount","source":"CHIRPS v3 / GPM IMERG","resolution":"5–10 km","unit":"mm","max":50,"colors":["#e5f0ed","#b6d8c8","#7bb5a6","#3e8e84","#1c666a"],"status":"Available"},
+  {"id":"cloud","name":"Cloud cover","description":"Infrared cloud imagery","source":"Himawari-9 AHI","resolution":"2 km","unit":"%","max":100,"colors":["#edf0f5","#d2d9e9","#b0bdd9","#8396bb","#52698e"],"status":"Available"},
+  {"id":"temperature","name":"Temperature","description":"Near-surface air temperature","source":"ERA5-Seamless / NASA POWER","resolution":"25 km","unit":"°C","max":40,"colors":["#f7eccc","#ead79e","#dfb16e","#cc8350","#a7523d"],"status":"Available"},
+  {"id":"evapotranspiration","name":"Evapotranspiration","description":"Reference crop water demand (ET₀)","source":"ERA5-Seamless / NASA POWER","resolution":"25 km","unit":"mm","max":8,"colors":["#f4efe2","#e5cf9c","#d4a359","#b87435","#8c4a1f"],"status":"Available"},
+  {"id":"vegetation","name":"Vegetation health","description":"Plant greenness (NDVI)","source":"MODIS Terra / ORNL DAAC","resolution":"250 m","unit":"NDVI","max":1,"colors":["#e9e6ca","#c7d5a5","#95b883","#619460","#326b45"],"status":"Cloud-masked"},
+  {"id":"soil","name":"Soil moisture","description":"Surface soil water","source":"NASA SMAP L3/L4","resolution":"9 km","unit":"m³/m³","max":0.5,"colors":["#e6eeee","#bdd7de","#8cb7c9","#588ea9","#326581"],"status":"Available"}
+]

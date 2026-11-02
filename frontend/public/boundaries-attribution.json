@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/faeldon/philippines-json-maps",
+  "commit": "bf7060598ff5a5d160917f1dcb9622dbaef85ff7",
+  "vintage": "PSGC 3Q 2026",
+  "resolution": "medium (1% retained vertices)",
+  "count": 1642,
+  "attribution": "Boundaries: NAMRIA / PSA via OCHA COD-AB (CC BY-IGO 3.0), processed by James Faeldon (MIT). Simplified boundaries for visualization, not surveying."
+}

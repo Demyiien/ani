@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+const repo='faeldon/philippines-json-maps';
+const tree=await fetch(`https://api.github.com/repos/${repo}/git/trees/master?recursive=1`).then(r=>r.json());
+const root=`https://raw.githubusercontent.com/${repo}/${tree.sha}/`;
+const paths=tree.tree.filter(f=>/^latest\/geojson\/(provdists|regions)\/medres\/.*\.json$/.test(f.path)).map(f=>f.path);
+const collections=[];let cursor=0;
+await Promise.all(Array.from({length:6},async()=>{while(cursor<paths.length){const path=paths[cursor++];const r=await fetch(root+path);if(!r.ok)throw Error(path+': '+r.status);collections.push({path,data:await r.json()});}}));
+const cities=collections.filter(c=>c.path.includes('/provdists/')).flatMap(c=>c.data.features);
+const provinces=collections.filter(c=>c.path.includes('/regions/')).flatMap(c=>c.data.features);
+const regions=await fetch(root+'latest/geojson/country/medres/country.0.01.json').then(r=>r.json());
+await fs.writeFile('scripts/boundaries-raw.json',JSON.stringify({cities,provinces,regions,sha:tree.sha}));
+await fs.writeFile('public/boundaries-LICENSE.txt',await fetch(root+'LICENSE').then(r=>r.text()));
+console.log({cities:cities.length,provinces:provinces.length,regionSample:regions.features[0].properties,citySample:cities[0].properties,provinceSample:provinces[0].properties,sha:tree.sha});
